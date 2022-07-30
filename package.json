@@ -1,0 +1,31 @@
+{
+  "name": "web-crawler-globalpetrolprices",
+  "version": "0.0.1",
+  "description": "A web crarwler to site globalpetrolprices",
+  "main": "index.js",
+  "author": "Iván Sánchez <sanchez.diaz.ivan@gmail.com>",
+  "license": "Apache License 2.0",
+  "private": false,
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint"
+  },
+  "engines": {
+    "node": ">=16.13.1"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "commander": "^9.4.0",
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  }
+}
