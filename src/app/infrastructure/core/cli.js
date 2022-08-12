@@ -1,3 +1,9 @@
+const { Command } = require('commander');
+
+function createProgram({ name, description, version }) {
+  return new Command().name(name).description(description).version(version);
+}
+
 function addCommand(
   program,
   { name, description, argumentType, argumentDescription, action }
@@ -9,4 +15,4 @@ function addCommand(
     .action(action);
 }
 
-module.exports = addCommand;
+module.exports = { createProgram, addCommand };

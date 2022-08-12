@@ -1,17 +1,17 @@
 const cheerio = require('cheerio');
 
-class PageHandler {
-  #$;
+class DOMHandler {
+  #_$;
 
   constructor(DOM) {
-    this.#$ = cheerio.load(DOM);
+    this.#_$ = cheerio.load(DOM);
   }
 
   getDataTable(tableIndex) {
-    const DOMTable = this.#$('tbody').get(tableIndex);
+    const DOMTable = this.#_$('tbody').get(tableIndex);
     const data = [];
 
-    this.#$(DOMTable)
+    this.#_$(DOMTable)
       .children()
       .map((seed, item) => {
         data.push(this.#getDataRow(item));
@@ -23,7 +23,7 @@ class PageHandler {
   #getDataRow(row) {
     const th = row.children.filter((item) => item.name === 'th');
     const tds = row.children.filter((item) => item.name === 'td');
-    const thText = this.#$(th).text().trim();
+    const thText = this.#_$(th).text().trim();
 
     const data = {
       title: thText,
@@ -34,4 +34,4 @@ class PageHandler {
   }
 }
 
-module.exports = PageHandler;
+module.exports = DOMHandler;

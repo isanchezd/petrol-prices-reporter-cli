@@ -11,8 +11,4 @@ async function get(url) {
   return response;
 }
 
-const HttpHandler = {
-  get,
-};
-
-module.exports = HttpHandler;
+module.exports = { get };

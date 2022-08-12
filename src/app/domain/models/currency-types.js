@@ -1,11 +1,11 @@
-const EUR = 'EUR';
-const EUR_SYMBOL = '€';
-const DOLLAR = 'USD';
-const DOLLAR_SYMBOL = '$';
+const currencies = new Set(['EUR', 'USD']);
+
+const currencySymbols = {
+  EUR: '€',
+  USD: '$',
+};
 
 module.exports = {
-  EUR,
-  EUR_SYMBOL,
-  DOLLAR,
-  DOLLAR_SYMBOL,
+  currencies,
+  currencySymbols,
 };

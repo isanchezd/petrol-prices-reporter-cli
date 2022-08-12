@@ -1,3 +1,3 @@
-const App = require('./app/app');
+const { bootstrap } = require('./app');
 
-App();
+bootstrap();
