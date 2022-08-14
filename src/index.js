@@ -1,3 +1,3 @@
-const { bootstrap } = require('./app');
+import { bootstrap } from './app/index.js';
 
 bootstrap();

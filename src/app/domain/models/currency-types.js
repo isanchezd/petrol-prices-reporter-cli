@@ -1,11 +1,6 @@
-const currencies = new Set(['EUR', 'USD']);
+export const currencies = new Set(['EUR', 'USD']);
 
-const currencySymbols = {
+export const currencySymbols = {
   EUR: '€',
   USD: '$',
-};
-
-module.exports = {
-  currencies,
-  currencySymbols,
 };

@@ -1,6 +1,6 @@
-const axios = require('axios');
+import axios from 'axios';
 
-async function get(url) {
+export async function get(url) {
   const response = await axios(url).catch((err) => console.log(err));
 
   if (response.status !== 200) {
@@ -10,5 +10,3 @@ async function get(url) {
 
   return response;
 }
-
-module.exports = { get };

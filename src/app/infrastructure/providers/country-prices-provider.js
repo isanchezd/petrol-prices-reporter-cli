@@ -1,13 +1,13 @@
-const DOMHandler = require('../core/dom-handler');
-const Fuel = require('../../domain/entities/fuel');
-const Price = require('../../domain/entities/price');
-const Currency = require('../../domain/entities/currency');
-const {
+import { DOMHandler } from '../core/dom-handler.js';
+import { Fuel } from '../../domain/entities/fuel.js';
+import { Price } from '../../domain/entities/price.js';
+import { Currency } from '../../domain/entities/currency.js';
+import {
   currencies,
   currencySymbols,
-} = require('../../domain/models/currency-types');
+} from '../../domain/models/currency-types.js';
 
-function getCountryPrices(DOM) {
+export function getCountryPrices(DOM) {
   const domHandler = new DOMHandler(DOM);
 
   const fuelPrices = domHandler.getDataTable(0);
@@ -31,5 +31,3 @@ function getFuel(DOMData) {
 
   return newFuel;
 }
-
-module.exports = { getCountryPrices };

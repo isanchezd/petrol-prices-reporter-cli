@@ -1,4 +1,4 @@
-class Fuel {
+export class Fuel {
   #name;
   #date;
   #prices;
@@ -21,5 +21,3 @@ class Fuel {
     return this.#prices.find((price) => price.currency.id === id);
   }
 }
-
-module.exports = Fuel;

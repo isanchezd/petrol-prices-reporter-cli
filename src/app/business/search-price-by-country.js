@@ -1,18 +1,14 @@
-async function getPricesByCountry(
-  country,
-  priceRepository,
-  countryPricesProvider
-) {
+import { getPricesByCountry } from '../infrastructure/repositories/price-repository.js';
+import { getCountryPrices } from '../infrastructure/providers/country-prices-provider.js';
+
+export async function searchPricesByCountry(country) {
   let data = [];
   try {
-    console.log(priceRepository);
-    const response = await priceRepository.getPricesByCountry(country);
-    data = countryPricesProvider.getCountryPrices(response);
+    const response = await getPricesByCountry(country);
+    data = getCountryPrices(response);
   } catch (error) {
     console.log(error);
   }
 
   return data;
 }
-
-module.exports = { getPricesByCountry };

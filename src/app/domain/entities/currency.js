@@ -1,4 +1,4 @@
-class Currency {
+export class Currency {
   #text;
   #symbol;
 
@@ -15,5 +15,3 @@ class Currency {
     return this.#symbol;
   }
 }
-
-module.exports = Currency;

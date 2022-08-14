@@ -4,7 +4,8 @@
   "description": "A web crarwler to site globalpetrolprices",
   "main": "index.js",
   "author": "Iván Sánchez <sanchez.diaz.ivan@gmail.com>",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
+  "type": "module",
   "private": false,
   "scripts": {
     "start": "node src/index.js",

@@ -1,10 +1,10 @@
-const cheerio = require('cheerio');
+import { load } from 'cheerio';
 
-class DOMHandler {
+export class DOMHandler {
   #_$;
 
   constructor(DOM) {
-    this.#_$ = cheerio.load(DOM);
+    this.#_$ = load(DOM);
   }
 
   getDataTable(tableIndex) {
@@ -33,5 +33,3 @@ class DOMHandler {
     return data;
   }
 }
-
-module.exports = DOMHandler;

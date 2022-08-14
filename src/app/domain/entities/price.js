@@ -1,4 +1,4 @@
-class Price {
+export class Price {
   #amount;
   #currency;
 
@@ -19,5 +19,3 @@ class Price {
     return `${this.amount} ${this.currency.symbol}`;
   }
 }
-
-module.exports = Price;
