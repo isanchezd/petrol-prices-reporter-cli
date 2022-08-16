@@ -13,6 +13,8 @@ async function searchPricesByCountry (country) {
   return data
 }
 
-export default {
+const SearchPriceByCountryUseCase = {
   searchPricesByCountry
 }
+
+export default SearchPriceByCountryUseCase

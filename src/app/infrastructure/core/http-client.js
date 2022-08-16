@@ -11,6 +11,8 @@ async function get (url) {
   return response
 }
 
-export default {
+const HttpClient = {
   get
 }
+
+export default HttpClient

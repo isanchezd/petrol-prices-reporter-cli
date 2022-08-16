@@ -9,6 +9,8 @@ async function getPricesByCountry (country) {
   return data
 }
 
-export default {
+const PriceRepository = {
   getPricesByCountry
 }
+
+export default PriceRepository

@@ -32,6 +32,8 @@ function getFuel (DOMData) {
   return newFuel
 }
 
-export default {
+const CountryPricesService = {
   getCountryPrices
 }
+
+export default CountryPricesService
