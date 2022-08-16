@@ -1,10 +1,14 @@
-import { get } from '../core/http-client.js';
-import 'dotenv/config';
+import httpClient from '../core/http-client.js'
+import 'dotenv/config'
 
-export async function getPricesByCountry(country) {
-  const url = `${process.env.URL_SOURCE}${country ? country : ''}/`;
-  const result = await get(url);
-  const data = await result.data;
+async function getPricesByCountry (country) {
+  const url = `${process.env.URL_SOURCE}${country || ''}/`
+  const result = await httpClient.get(url)
+  const data = await result.data
 
-  return data;
+  return data
+}
+
+export default {
+  getPricesByCountry
 }

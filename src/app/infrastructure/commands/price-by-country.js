@@ -1,15 +1,25 @@
-import { searchPricesByCountry } from '../../business/search-price-by-country.js';
+import searchPricesByCountryBusiness from '../../business/search-price-by-country.js'
+
+const name = 'prices-by-country'
+
+const description = 'Get price by the country'
+
+const argumentType = '<string>'
+
+const argumentDescription = 'Country'
 
 const action = (country) => {
-  searchPricesByCountry(country).then((response) => {
-    console.log(response);
-  });
-};
+  searchPricesByCountryBusiness
+    .searchPricesByCountry(country)
+    .then((response) => {
+      console.log(response)
+    })
+}
 
-export const pricesByCountryCommand = {
-  name: 'prices-by-country',
-  description: 'Get price by the country',
-  argumentType: '<string>',
-  argumentDescription: 'Country',
-  action,
-};
+export default {
+  name,
+  description,
+  argumentType,
+  argumentDescription,
+  action
+}

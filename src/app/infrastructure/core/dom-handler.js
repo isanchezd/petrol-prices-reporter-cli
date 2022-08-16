@@ -1,35 +1,33 @@
-import { load } from 'cheerio';
+import { load } from 'cheerio'
 
-export class DOMHandler {
-  #_$;
+export default class DOMHandler {
+  #$
 
-  constructor(DOM) {
-    this.#_$ = load(DOM);
+  constructor (DOM) {
+    this.#$ = load(DOM)
   }
 
-  getDataTable(tableIndex) {
-    const DOMTable = this.#_$('tbody').get(tableIndex);
-    const data = [];
+  getDataTable (tableIndex) {
+    const DOMTable = this.#$('tbody').get(tableIndex)
+    const data = [
+      ...this.#$(DOMTable)
+        .children()
+        .map((seed, item) => this.#getDataRow(item))
+    ]
 
-    this.#_$(DOMTable)
-      .children()
-      .map((seed, item) => {
-        data.push(this.#getDataRow(item));
-      });
-
-    return data;
+    return data
   }
 
-  #getDataRow(row) {
-    const th = row.children.filter((item) => item.name === 'th');
-    const tds = row.children.filter((item) => item.name === 'td');
-    const thText = this.#_$(th).text().trim();
+  #getDataRow (row) {
+    const th = row.children.filter((item) => item.name === 'th')
+    const tds = row.children.filter((item) => item.name === 'td')
+    const thText = this.#$(th).text().trim()
 
     const data = {
       title: thText,
-      data: tds.map((item) => item.children[0].data.trim()),
-    };
+      data: tds.map((item) => item.children[0].data.trim())
+    }
 
-    return data;
+    return data
   }
 }

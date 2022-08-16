@@ -1,16 +1,24 @@
-import { Command } from 'commander';
+import { Command } from 'commander'
 
-export function createProgram({ name, description, version }) {
-  return new Command().name(name).description(description).version(version);
-}
+export default class CLI {
+  #program
 
-export function addCommand(
-  program,
-  { name, description, argumentType, argumentDescription, action }
-) {
-  program
-    .command(name)
-    .description(description)
-    .argument(argumentType, argumentDescription)
-    .action(action);
+  constructor (name, description, version) {
+    this.#program = new Command()
+      .name(name)
+      .description(description)
+      .version(version)
+  }
+
+  get program () {
+    return this.#program
+  }
+
+  addCommand ({ name, description, argumentType, argumentDescription, action }) {
+    this.#program
+      .command(name)
+      .description(description)
+      .argument(argumentType, argumentDescription)
+      .action(action)
+  }
 }
