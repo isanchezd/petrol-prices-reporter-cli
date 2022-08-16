@@ -1,18 +1,18 @@
 export default class Price {
-  #amount
-  #currency
+  #_amount
+  #_currency
 
   constructor (amount, currency) {
-    this.#amount = amount
-    this.#currency = currency
+    this.#_amount = amount
+    this.#_currency = currency
   }
 
   get amount () {
-    return this.#amount
+    return this.#_amount
   }
 
   get currency () {
-    return this.#currency
+    return this.#_currency
   }
 
   toString () {

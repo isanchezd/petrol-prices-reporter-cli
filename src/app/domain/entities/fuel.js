@@ -1,23 +1,23 @@
 export default class Fuel {
-  #name
-  #date
-  #prices
+  #_name
+  #_date
+  #_prices
 
   constructor (name, date, prices) {
-    this.#name = name
-    this.#date = date
-    this.#prices = [...prices]
+    this.#_name = name
+    this.#_date = date
+    this.#_prices = [...prices]
   }
 
   get name () {
-    return this.#name
+    return this.#_name
   }
 
   get date () {
-    return this.#date
+    return this.#_date
   }
 
   getPriceByCurrency (currencyId) {
-    return this.#prices.find((price) => price.currency.id === currencyId)
+    return this.#_prices.find((price) => price.currency.id === currencyId)
   }
 }

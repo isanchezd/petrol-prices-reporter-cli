@@ -1,17 +1,17 @@
 export default class Currency {
-  #text
-  #symbol
+  #_text
+  #_symbol
 
   constructor (text, symbol) {
-    this.#text = text
-    this.#symbol = symbol
+    this.#_text = text
+    this.#_symbol = symbol
   }
 
   get text () {
-    return this.#text
+    return this.#_text
   }
 
   get symbol () {
-    return this.#symbol
+    return this.#_symbol
   }
 }
