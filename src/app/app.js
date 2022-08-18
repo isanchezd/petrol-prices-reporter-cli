@@ -8,7 +8,7 @@ const APP_CONFIG = {
 }
 
 const PRICE_BY_COUNTRY_COMMAND_CONFIG = {
-  name: 'prices-by-country',
+  name: 'country',
   description: 'Get price by the country',
   argumentType: '<string>',
   argumentDescription: 'Country'

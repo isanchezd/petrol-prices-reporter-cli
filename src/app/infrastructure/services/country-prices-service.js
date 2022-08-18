@@ -15,18 +15,18 @@ function getCountryPrices (DOM) {
   const NGPrices = domHandler.getDataTable(2)
 
   return [
-    ...fuelPrices.map(getFuel),
-    ...electricityPrices.map(getFuel),
-    ...NGPrices.map(getFuel)
+    fuelPrices.map(getFuel),
+    electricityPrices.map(getFuel),
+    NGPrices.map(getFuel)
   ]
 }
 
 function getFuel (DOMData) {
   const [EUR, USD] = currencies
 
-  const newFuel = new Fuel(DOMData.title, DOMData.data[0], [
-    new Price(DOMData.data[1], new Currency(EUR, currencySymbols[EUR])),
-    new Price(DOMData.data[2], new Currency(USD, currencySymbols[USD]))
+  const newFuel = new Fuel(DOMData[0], DOMData[1], [
+    new Price(DOMData[3], new Currency(EUR, currencySymbols[EUR])),
+    new Price(DOMData[4], new Currency(USD, currencySymbols[USD]))
   ])
 
   return newFuel

@@ -1,33 +1,36 @@
-import { load } from 'cheerio'
+import jsdom from 'jsdom'
+const { JSDOM } = jsdom
 
 export default class DOMHandler {
-  #$
+  #dom
 
-  constructor (DOM) {
-    this.#$ = load(DOM)
+  constructor(html) {
+    this.#dom = new JSDOM(html)
   }
 
-  getDataTable (tableIndex) {
-    const DOMTable = this.#$('tbody').get(tableIndex)
-    const data = [
-      ...this.#$(DOMTable)
-        .children()
-        .map((seed, item) => this.#getDataRow(item))
-    ]
+  getDataTable(tableIndex) {
+    const tbodys = this.#getTables(tableIndex)
+
+    const data = Array.from(tbodys[tableIndex].childNodes)
+      .filter((node) => node.nodeName === 'TR')
+      .map((node) => this.#parseData(node))
 
     return data
   }
 
-  #getDataRow (row) {
-    const th = row.children.filter((item) => item.name === 'th')
-    const tds = row.children.filter((item) => item.name === 'td')
-    const thText = this.#$(th).text().trim()
+  #getTables() {
+    return this.#dom.window.document.querySelectorAll('tbody')
+  }
 
-    const data = {
-      title: thText,
-      data: tds.map((item) => item.children[0].data.trim())
-    }
-
-    return data
+  #parseData(node) {
+    return node.textContent
+      .trim()
+      .split('\n')
+      .reduce((acc, item) => {
+        if (!acc.includes(item) && item !== '') {
+          acc.push(item)
+        }
+        return acc
+      }, [])
   }
 }

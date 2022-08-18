@@ -1,14 +1,18 @@
-import axios from 'axios'
+import fetch from 'node-fetch'
 
 async function get (url) {
-  const response = await axios(url).catch((err) => console.log(err))
+  let data
 
-  if (response.status !== 200) {
-    console.log('Error occurred while fetching data')
-    return
+  try {
+    const response = await fetch(url)
+    const body = await response.text()
+
+    data = body
+  } catch(err) {
+      console.error('Error occurred while fetching data')
   }
 
-  return response
+  return data
 }
 
 const HttpClient = {
